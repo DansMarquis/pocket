@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes bubble-float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.02);
+  }
+}
+
+.gradient-bubble {
+  background: linear-gradient(-45deg, #8B5CF6, #3B82F6, #06B6D4, #10B981);
+  background-size: 400% 400%;
+  animation: gradient-shift 3s ease infinite, bubble-float 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-bubble::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: bubble-float 4s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+/* Custom Range Slider Styles */
+.range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: transparent;
+  outline: none;
+  pointer-events: none;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #8B5CF6;
+  cursor: pointer;
+  pointer-events: all;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.range-slider::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #8B5CF6;
+  cursor: pointer;
+  pointer-events: all;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.range-slider-min::-webkit-slider-thumb {
+  background: linear-gradient(45deg, #F97316, #EF4444);
+  border: 2px solid #ffffff;
+}
+
+.range-slider-max::-webkit-slider-thumb {
+  background: linear-gradient(45deg, #8B5CF6, #3B82F6);
+  border: 2px solid #ffffff;
+}
+
+.range-slider-min::-moz-range-thumb {
+  background: linear-gradient(45deg, #F97316, #EF4444);
+  border: 2px solid #ffffff;
+}
+
+.range-slider-max::-moz-range-thumb {
+  background: linear-gradient(45deg, #8B5CF6, #3B82F6);
+  border: 2px solid #ffffff;
+}
