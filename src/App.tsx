@@ -11,6 +11,8 @@ import { Wishlist } from './components/Wishlist';
 import { Subscriptions } from './components/Subscriptions';
 import { Categories } from './components/Categories';
 import Investments from './components/Investments';
+import Login from './components/Login';
+
 
 import { api } from './lib/supabase';
 
